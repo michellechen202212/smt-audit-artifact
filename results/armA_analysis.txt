@@ -1,0 +1,16 @@
+op    family                  admissible       default  verified   ctl(vfy)
+---------------------------------------------------------------------------
+GC1   grain_cardinality       admissible      rejected  SURVIVED   rejected
+ME1   measures                admissible      rejected  rejected   rejected
+ME3   measures                admissible      rejected  SURVIVED   rejected
+PP1   population_predicates   admissible      rejected  SURVIVED   SURVIVED
+PP2   population_predicates   INADMISSIBLE: 
+AB1   absence                 admissible      rejected  SURVIVED   rejected
+AB2   absence                 admissible      SURVIVED  SURVIVED   rejected
+RV1   representative_value    admissible      rejected  SURVIVED   rejected
+RV2   representative_value    admissible      rejected  rejected   rejected
+TM2   temporal                admissible      rejected  rejected   rejected
+
+default:  SMDR 8/9   CMDR 9/9   Delta +11.1 pts
+
+verified:  SMDR 3/9   CMDR 8/9   Delta +55.6 pts

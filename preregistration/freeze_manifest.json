@@ -1,0 +1,20 @@
+{
+  "frozen_at_utc": "2026-09-29T06:00:00Z",
+  "note": "Hashes computed BEFORE the confirmatory run. Any later edit invalidates the freeze.",
+  "files": {
+    "evaluator/default/comparator.py": "2d17c7641c61bd101d90fc889b383f5af01cf6d585a99fad219ad06debd9a99e",
+    "evaluator/default/eva_stage2.py": "4b0243916d43a7d706b5efc7a059a6cc636ab6c9abce20360a2d585e03862170",
+    "evaluator/verified/comparator.py": "133db69f82300f24eea56ca1432dc3457fc65db08e41918064ebdbb710ac7d1b",
+    "evaluator/verified/eva_stage2.py": "0487c53f3eb45eabc39306328ef16ae522a71c67d152cc3b2adb8bc648c5fa45",
+    "operators/catalog_v1.yaml": "8e0bc24d9c09d32939116a3e9de07b87bf0d4a0640912a785eaef66edde5e39e",
+    "preregistration/analysis_plan.md": "de33bdef1e8195f9d74172153203fa8867d4c159007648d5944fe348acac549e",
+    "preregistration/catalog_v1.yaml": "8e0bc24d9c09d32939116a3e9de07b87bf0d4a0640912a785eaef66edde5e39e",
+    "preregistration/control_rules.md": "957ad620eaa5678c186ad08152317422de5402a9f3d62b40a7ffdaed60ac4237",
+    "preregistration/evaluator_manifest.json": "0d263cc8cfba48c54b3f9f849da6ab35369436d198741d0f002bf3b0db8916fb",
+    "preregistration/operator_catalog.csv": "1a3a8dc2b3df5a2370a59463ff586c1ce85b5b0ab7c89d8b2c2c6da538b7e165",
+    "preregistration/protocol.md": "15c1dc2782c1f0391c04579154a65762ab782fdd97a1a4a51c03f812648006ae",
+    "preregistration/witness_rules.yaml": "e8f83a91aa91bf0e62bd759f756d9db6d9fc6a53697039896283a9e4e00ea7f5"
+  },
+  "corpus_merkle_sha256": "f73e9421334f108ed49f1c6dd8584ef6ee7b895b5838371671e1a554c63579df",
+  "corpus_files": 180
+}

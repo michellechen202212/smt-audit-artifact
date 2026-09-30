@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/uiuc-kang-lab/ELT-Bench",
+  "evaluators": {
+    "default": {
+      "ref": "origin/elt_bench++",
+      "commit": "fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055",
+      "commit_date": "2026-08-03",
+      "path": "evaluation/eva_stage2.py",
+      "blob": "c57aac34a48ea8836b0d141ea7c2f552c499524e",
+      "sha256": "4b0243916d43a7d706b5efc7a059a6cc636ab6c9abce20360a2d585e03862170"
+    },
+    "verified": {
+      "ref": "refs/pull/18/head",
+      "commit": "c99baa6eaef9c258ebfa8bd675ea7d37a7470252",
+      "commit_date": "2026-06-12",
+      "path": "evaluation/eva_stage2.py",
+      "blob": "09a36dba9e90af9cc78dbf1ce89057f738fc365e",
+      "sha256": "0487c53f3eb45eabc39306328ef16ae522a71c67d152cc3b2adb8bc648c5fa45"
+    }
+  },
+  "branch_relationship": "no common ancestor; neither ref is an ancestor of the other",
+  "reference_sql": {
+    "model": "shipping.drivers",
+    "source_ref": "refs/pull/18/head",
+    "path": "evaluation/shipping/drivers.sql",
+    "blob": "1ba642ad1b79d0972c4d7b1f98c3397cb21cb026",
+    "sha256": "99dfb6406dcb7c487557ac733ac127622225b13cc029418415d79e77465bf636",
+    "present_in_default_branch": false,
+    "column_spec_agreement": "exact (8/8, ordered) vs elt-bench/redshift/shipping/data_model.yaml",
+    "output_verified_against_gt_csv": false
+  },
+  "corpus": {
+    "name": "ELT-Bench released benchmark output tables (SWE-agent predictions archived in the Verified reproducibility artifacts)",
+    "source_ref": "refs/pull/18/head",
+    "commit": "c99baa6eaef9c258ebfa8bd675ea7d37a7470252",
+    "path": "reproducibility_artifacts/swe-agent-predictions",
+    "tables": 180,
+    "models": 90,
+    "role": "Arm B reference outputs R; probes compare (R, R'). Provenance affects realism of schema and value distribution, not the validity of the comparison.",
+    "not_ground_truth": true,
+    "why_not_gt": "ELT-Bench ground-truth CSVs are hosted on HuggingFace/Google Drive, both unreachable from the audit environment (proxy allowlist). Re-running on gt_* requires only a corpus path change."
+  },
+  "dependencies": {
+    "duckdb": "1.5.6",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "PyYAML": "6.0.3"
+  },
+  "python": "3.11.15"
+}

@@ -1,0 +1,29 @@
+subject             op    family                   default  verified   ctl(vfy)
+-------------------------------------------------------------------------------
+shipping.drivers    GC1   grain_cardinality       rejected  SURVIVED   rejected
+shipping.drivers    ME1   measures                rejected  rejected   rejected
+shipping.drivers    ME3   measures                rejected  SURVIVED   rejected
+shipping.drivers    PP1   population_predicates   rejected  SURVIVED   SURVIVED
+shipping.drivers    PP2   population_predicates INADMISSIBLE:equivalent_on_w
+shipping.drivers    AB1   absence                 rejected  SURVIVED   rejected
+shipping.drivers    RV1   representative_value    rejected  SURVIVED   rejected
+shipping.drivers    RV2   representative_value    rejected  rejected   rejected
+shipping.drivers    TM2   temporal                rejected  rejected   rejected
+retails.customers   GC1   grain_cardinality     INADMISSIBLE:equivalent_on_w
+retails.customers   ME1   measures                rejected  rejected   rejected
+retails.customers   PP1   population_predicates   rejected  SURVIVED   SURVIVED
+retails.customers   PP2   population_predicates   rejected  rejected   rejected
+retails.customers   AB1   absence                 rejected  SURVIVED   rejected
+retails.customers   AB2   absence                 SURVIVED  SURVIVED   rejected
+retails.customers   RV1   representative_value    rejected  SURVIVED   rejected
+retails.customers   RV2   representative_value  INADMISSIBLE:equivalent_on_w
+retails.nations     ME1   measures              INADMISSIBLE:equivalent_on_w
+retails.nations     ME3   measures                rejected  rejected   rejected
+retails.nations     PP1   population_predicates   rejected  SURVIVED   SURVIVED
+retails.nations     AB1   absence                 rejected  SURVIVED   rejected
+retails.nations     AB2   absence                 SURVIVED  SURVIVED   rejected
+
+default   SMDR 16/18 = 88.9%   CMDR 18/18 = 100.0%   Delta +11.1 pts
+verified  SMDR 6/18 = 33.3%   CMDR 15/18 = 83.3%   Delta +50.0 pts
+
+subjects: 3   NOT_APPLICABLE: 44   INADMISSIBLE: 4   admissible instances: 18 (x2 evaluators)

@@ -1,0 +1,47 @@
+You are performing an independent review of paired outputs from data
+transformations.
+
+The working directory contains manifest.csv and one directory per case. Each case
+directory has:
+  context.txt     column names, datatypes, and documented column descriptions
+  output_A.csv    one output
+  output_B.csv    the other output
+
+For EVERY case listed in manifest.csv:
+
+1. Read context.txt.
+2. Compare output_A.csv and output_B.csv. Identify what differs between them.
+3. Judge whether the two outputs carry the same meaning for a downstream consumer
+   of this data.
+
+Do not assume either output is correct. Either, neither, or both may be a
+reasonable result. There is no expected answer.
+
+Classify each case as exactly one of:
+  SAME_MEANING             a downstream consumer would draw the same conclusions
+  DIFFERENT_MEANING        a downstream consumer would draw different conclusions
+  INSUFFICIENT_INFORMATION the provided context cannot settle the question
+
+For each case also report:
+  primary_semantic_dimension     short phrase naming what kind of difference this
+                                 is, in your own words (or "none" if SAME_MEANING)
+  downstream_impact              YES / NO / CANNOT_DETERMINE
+                                 would the difference change a downstream figure,
+                                 decision, or aggregate?
+  evaluator_should_distinguish   YES / NO / CANNOT_DETERMINE
+                                 should an automated correctness checker treat
+                                 these two outputs as non-equivalent?
+  confidence                     HIGH / MEDIUM / LOW
+  justification                  1-3 sentences
+
+Output one CSV to stdout with exactly this header:
+
+case_id,classification,primary_semantic_dimension,downstream_impact,evaluator_should_distinguish,confidence,justification
+
+Rules:
+- Judge each case independently. Do not let a pattern you notice across cases
+  change an individual verdict.
+- Base your judgement only on the files in this directory. Do not search the web
+  and do not read any directory outside this one.
+- If two cases look related, still judge each on its own contents.
+- Quote nothing from this prompt in your justifications.

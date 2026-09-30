@@ -1,0 +1,19 @@
+# Fetched from pinned upstream commits by fetch_sources.sh — never committed.
+# The audited repository ships no top-level LICENSE, so its source is not redistributed here.
+.src/
+evaluator/default/
+evaluator/verified/
+corpus/
+references/shipping__drivers.reference.sql
+references/retails__customers.reference.sql
+references/retails__nations.reference.sql
+
+# Generated
+evaluator/cmp_*.py
+evaluator/*/comparator.py
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.pdf

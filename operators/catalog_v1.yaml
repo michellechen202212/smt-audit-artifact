@@ -1,0 +1,255 @@
+# Confirmatory semantic mutation operator catalog — v1.0 (FROZEN)
+#
+# Frozen before the confirmatory run. Every operator is derived from published
+# data-modeling or query-testing sources, NOT from inspection of any evaluator.
+# `known_evaluator_interaction_if_any` records an ADVANCE prediction; it is
+# registered here so the prediction can be scored, and is never used to select
+# or exclude operators.
+#
+# Sources:
+#   [K]  Kimball & Ross, The Data Warehouse Toolkit, 3rd ed., 2013
+#        (declared grain; additive / semi-additive / non-additive facts;
+#         multi-valued dimensions and bridge tables)
+#   [FT] Fan trap / chasm trap, standard ER & BI modeling literature
+#   [C]  Codd / ISO SQL three-valued logic; NULL semantics of aggregates,
+#        NOT IN, and outer joins
+#   [SN] Slowly changing dimensions / as-of (effective-time) joins [K, ch. 5]
+#   [T]  Tuya, Suárez-Cabal & de la Riva, "Mutating database queries",
+#        Information and Software Technology 49(4):398-417, 2007
+#
+# Field contract per the brief:
+#   operator_id, semantic_property_changed, preconditions, mutation_rule,
+#   witness_requirements, affected_output_columns, expected_semantic_distinction,
+#   known_evaluator_interaction_if_any
+
+version: "1.0"
+frozen: true
+frozen_before_confirmatory_run: true
+predictions_are_advance_registrations: true
+
+families:
+
+  grain_cardinality:
+    rationale: "Declared grain is the defining property of a fact table [K]; fan/chasm traps are the canonical cardinality fault [FT]."
+    operators:
+      - operator_id: GC1
+        semantic_property_changed: "Output row multiplicity at the declared grain"
+        preconditions: "Reference contains DISTINCT, or a GROUP BY whose keys collapse duplicates"
+        mutation_rule: "Remove the duplicate-eliminating construct"
+        witness_requirements: "At least one key value with >1 contributing source row"
+        affected_output_columns: "All (row set)"
+        expected_semantic_distinction: "Mutant emits more rows per declared key than the reference"
+        known_evaluator_interaction_if_any: "PREDICT survives under key-deduplicating alignment"
+      - operator_id: GC2
+        semantic_property_changed: "Grain of a parent-level measure"
+        preconditions: "Reference joins a parent table to a one-to-many child"
+        mutation_rule: "Join parent to child without re-aggregating, so parent values repeat at child grain"
+        witness_requirements: "A parent with >=2 children and a non-zero parent-level amount"
+        affected_output_columns: "Parent-derived measures"
+        expected_semantic_distinction: "Parent amount counted once vs counted per child"
+        known_evaluator_interaction_if_any: "PREDICT rejected when it changes an aggregate value"
+      - operator_id: GC3
+        semantic_property_changed: "Grouping grain"
+        preconditions: "Reference has a GROUP BY with >=2 keys"
+        mutation_rule: "Drop one grouping key"
+        witness_requirements: "Two rows agreeing on the retained key, differing on the dropped one"
+        affected_output_columns: "Grouped measures and the row set"
+        expected_semantic_distinction: "Coarser grain merges groups that must stay distinct"
+        known_evaluator_interaction_if_any: "PREDICT rejected (row count and values both change)"
+      - operator_id: GC4
+        semantic_property_changed: "Independence of two child collections"
+        preconditions: "Reference relates one parent to two independent children"
+        mutation_rule: "Join both children in one query, producing the cross product"
+        witness_requirements: "A parent with >=2 rows in each child"
+        affected_output_columns: "All (row set)"
+        expected_semantic_distinction: "Fan trap fabricates parent-child pairings that do not exist [FT]"
+        known_evaluator_interaction_if_any: "PREDICT survives under key-deduplicating alignment"
+
+  measures:
+    rationale: "Additivity and the correct aggregation basis are core fact-table semantics [K]."
+    operators:
+      - operator_id: ME1
+        semantic_property_changed: "Counting basis"
+        preconditions: "Reference uses COUNT(*) or COUNT(DISTINCT x)"
+        mutation_rule: "Exchange COUNT(*) and COUNT(DISTINCT x)"
+        witness_requirements: "A group containing a repeated value of x"
+        affected_output_columns: "The count column"
+        expected_semantic_distinction: "Counting occurrences vs counting distinct entities"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: ME2
+        semantic_property_changed: "Ratio composition"
+        preconditions: "Reference computes SUM(num)/SUM(den) or AVG of a row-level ratio"
+        mutation_rule: "Exchange ratio-of-sums and average-of-ratios"
+        witness_requirements: "Group with unequal denominators across rows"
+        affected_output_columns: "The ratio column"
+        expected_semantic_distinction: "Simpson-style divergence; equal only when denominators are equal"
+        known_evaluator_interaction_if_any: "PREDICT rejected unless divergence < 1% relative"
+      - operator_id: ME3
+        semantic_property_changed: "Measure scale"
+        preconditions: "Reference scales a ratio to percentage points (or does not)"
+        mutation_rule: "Insert or remove the *100 scaling"
+        witness_requirements: ">=3 non-zero rows in the affected column"
+        affected_output_columns: "The scaled column"
+        expected_semantic_distinction: "Percentage points vs fraction"
+        known_evaluator_interaction_if_any: "PREDICT survives under percentage-scale normalization"
+      - operator_id: ME4
+        semantic_property_changed: "Additivity across time"
+        preconditions: "A snapshot/balance measure exists (semi-additive [K])"
+        mutation_rule: "SUM the snapshot across the time dimension instead of taking the period-end value"
+        witness_requirements: "An entity with >=2 snapshots in one period"
+        affected_output_columns: "The snapshot measure"
+        expected_semantic_distinction: "Summing a non-additive measure over time"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+
+  population_predicates:
+    rationale: "Which entities are in scope is a semantic commitment distinct from the values computed."
+    operators:
+      - operator_id: PP1
+        semantic_property_changed: "Output population"
+        preconditions: "Reference uses LEFT JOIN from the driving table"
+        mutation_rule: "LEFT JOIN -> INNER JOIN"
+        witness_requirements: "A driving-table row with no match"
+        affected_output_columns: "All (row set)"
+        expected_semantic_distinction: "Unmatched entities silently leave the population"
+        known_evaluator_interaction_if_any: "PREDICT survives under intersecting alignment"
+      - operator_id: PP2
+        semantic_property_changed: "Membership test"
+        preconditions: "Reference matches a string by equality"
+        mutation_rule: "Equality -> substring/LIKE match (Tuya LKE [T])"
+        witness_requirements: "Two values where one is a proper substring of the other"
+        affected_output_columns: "Derived flags/counts"
+        expected_semantic_distinction: "Over-broad membership"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: PP3
+        semantic_property_changed: "Null-safety of an anti-join"
+        preconditions: "Reference excludes via NOT IN / NOT EXISTS on a nullable column"
+        mutation_rule: "Exchange NOT EXISTS and NOT IN"
+        witness_requirements: "A NULL in the exclusion list plus >=1 unrelated candidate row"
+        affected_output_columns: "All (row set)"
+        expected_semantic_distinction: "Three-valued logic empties the result [C]"
+        known_evaluator_interaction_if_any: "PREDICT rejected (large row-set change)"
+
+  temporal:
+    rationale: "Event vs processing time, interval half-openness, and as-of joins are standard temporal-modeling commitments [K][SN]."
+    operators:
+      - operator_id: TM1
+        semantic_property_changed: "Time basis"
+        preconditions: "Both an event-time and a load/ingest-time column exist"
+        mutation_rule: "Swap event-time for load-time in filter or ordering"
+        witness_requirements: "A late-arriving row where the two orders disagree"
+        affected_output_columns: "Time-derived columns"
+        expected_semantic_distinction: "Business time replaced by pipeline time"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: TM2
+        semantic_property_changed: "Interval inclusivity"
+        preconditions: "A validity or period interval is used"
+        mutation_rule: "[from, to) -> [from, to]"
+        witness_requirements: "A row exactly on the boundary instant"
+        affected_output_columns: "Interval-joined columns"
+        expected_semantic_distinction: "Boundary row attributed to the wrong period"
+        known_evaluator_interaction_if_any: "PREDICT rejected only if the boundary row is present"
+      - operator_id: TM3
+        semantic_property_changed: "As-of vs current-row attribution"
+        preconditions: "An SCD2-style dimension with validity intervals"
+        mutation_rule: "Effective-time join -> join on the current row"
+        witness_requirements: "An entity with >=2 versions and a fact predating the latest"
+        affected_output_columns: "Dimension attributes"
+        expected_semantic_distinction: "History collapsed to present [SN]"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: TM4
+        semantic_property_changed: "Local-date derivation"
+        preconditions: "A UTC timestamp plus a timezone attribute"
+        mutation_rule: "Remove the timezone conversion before deriving the date"
+        witness_requirements: "An event near local midnight"
+        affected_output_columns: "The derived date"
+        expected_semantic_distinction: "Event assigned to the wrong business date"
+        known_evaluator_interaction_if_any: "PREDICT rejected, but timestamp normalization may truncate"
+
+  absence:
+    rationale: "NULL denotes unknown/inapplicable and is not zero or a sentinel; aggregates ignore NULLs [C]."
+    operators:
+      - operator_id: AB1
+        semantic_property_changed: "Absence encoding (null vs zero)"
+        preconditions: "A COALESCE(x,0) or an outer-join-produced NULL exists"
+        mutation_rule: "Insert or remove the COALESCE"
+        witness_requirements: "An entity with no related rows, and separately a genuine zero"
+        affected_output_columns: "The affected measure"
+        expected_semantic_distinction: "'No data' conflated with 'measured zero'"
+        known_evaluator_interaction_if_any: "PREDICT survives under NULL/zero equivalence"
+      - operator_id: AB2
+        semantic_property_changed: "Absence encoding (null vs sentinel)"
+        preconditions: "A nullable output column exists"
+        mutation_rule: "NULL -> a sentinel string such as 'N/A'"
+        witness_requirements: "At least one absent value"
+        affected_output_columns: "The affected column"
+        expected_semantic_distinction: "Absence becomes an in-domain value"
+        known_evaluator_interaction_if_any: "PREDICT rejected (string vs null)"
+      - operator_id: AB3
+        semantic_property_changed: "Aggregate denominator under NULLs"
+        preconditions: "An AVG or ratio over a nullable column"
+        mutation_rule: "Include NULLs as zeros in the denominator (or exclude them)"
+        witness_requirements: "A group mixing NULLs and real values"
+        affected_output_columns: "The aggregate"
+        expected_semantic_distinction: "Mean over recorded values vs over all rows [C]"
+        known_evaluator_interaction_if_any: "PREDICT rejected unless divergence < 1% relative"
+
+  representative_value:
+    rationale: "Superlative and 'representative row' specifications are underdetermined under ties; tie policy is a semantic commitment."
+    operators:
+      - operator_id: RV1
+        semantic_property_changed: "Tie retention"
+        preconditions: "A ranking window function is used"
+        mutation_rule: "RANK -> ROW_NUMBER (or DENSE_RANK)"
+        witness_requirements: "An exact tie on the full ordering key"
+        affected_output_columns: "Selected representative row and the row set"
+        expected_semantic_distinction: "All tied rows kept vs one arbitrarily chosen"
+        known_evaluator_interaction_if_any: "PREDICT survives when the row count change is absorbed by alignment"
+      - operator_id: RV2
+        semantic_property_changed: "Tie-break direction"
+        preconditions: "An ordering with an explicit tie-break column"
+        mutation_rule: "Reverse the tie-break direction"
+        witness_requirements: "A tie on the primary key with differing tie-break values"
+        affected_output_columns: "The representative value"
+        expected_semantic_distinction: "A different row represents the group"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: RV3
+        semantic_property_changed: "Superlative under ties"
+        preconditions: "A superlative is computed"
+        mutation_rule: "Tie-aware selection -> ORDER BY ... LIMIT 1"
+        witness_requirements: "Two entities tied at the extremum"
+        affected_output_columns: "The superlative column"
+        expected_semantic_distinction: "Nondeterministic pick vs specified policy"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+      - operator_id: RV4
+        semantic_property_changed: "Central-tendency statistic"
+        preconditions: "A 'most common' / modal value is specified"
+        mutation_rule: "MODE -> MAX (or MIN)"
+        witness_requirements: "A group whose modal value is not its maximum"
+        affected_output_columns: "The representative column"
+        expected_semantic_distinction: "Most frequent vs largest"
+        known_evaluator_interaction_if_any: "PREDICT rejected"
+
+# ---------------------------------------------------------------------------
+matched_control_rule:
+  principle: >
+    A matched conventional mutant is a standard SQL mutation-testing operator [T]
+    applied so that it perturbs the SAME affected_output_columns as its semantic
+    partner, admitted under the SAME witness, and of comparable magnitude.
+    Matching is on the observable output, not on SQL syntax.
+  operator_pool:
+    - "OR/ROR - relational operator replacement [T]"
+    - "OR/AOR - arithmetic operator replacement [T]"
+    - "OR/LCR - logical connector replacement [T]"
+    - "IR - identifier/constant replacement [T]"
+    - "SC - clause-level deletion (predicate or subquery removal) [T]"
+  magnitude_matching: >
+    Bin the reference-vs-mutant divergence on the affected column into
+    {row-set change, >1% relative value change, <=1% relative value change} and
+    require the control to fall in the same bin. Report the achieved match rate;
+    unmatched semantic mutants are reported separately rather than dropped.
+  known_overlap_disclosure: >
+    Tuya's NL category already mutates NULL handling, so the absence family
+    overlaps the conventional pool by construction. Absence operators are
+    therefore matched against non-NL controls (ROR/AOR/IR) on the same column,
+    and the overlap is disclosed as a comparability threat.
+  pairing: "Preserved in analysis; paired tests only where pairing assumptions hold."

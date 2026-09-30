@@ -1,0 +1,18 @@
+EXPLORATORY: in-distribution matched controls (same cells, observed values)
+
+default: eligible pairs 32
+   semantic rejected        32/32 = 100.0%
+   in-dist control rejected 32/32 = 100.0%
+   Delta +0.0 pts   discordant=0 (b01=0, b10=0)   exact two-sided p=1
+     ME3: semantic 10/10   in-dist control 10/10
+     AB1: semantic 11/11   in-dist control 11/11
+     AB1R: semantic 11/11   in-dist control 11/11
+
+verified: eligible pairs 32
+   semantic rejected        0/32 = 0.0%
+   in-dist control rejected 32/32 = 100.0%
+   Delta +100.0 pts   discordant=32 (b01=32, b10=0)   exact two-sided p=4.66e-10
+     ME3: semantic 0/10   in-dist control 10/10
+     AB1: semantic 0/11   in-dist control 11/11
+     AB1R: semantic 0/11   in-dist control 11/11
+

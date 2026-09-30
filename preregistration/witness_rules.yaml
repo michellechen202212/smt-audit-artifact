@@ -1,0 +1,123 @@
+# Arm B — frozen output-level probe realizations
+# FROZEN BEFORE THE CONFIRMATORY RUN. Do not edit after the run begins.
+#
+# Every probe below realizes an operator from operators/catalog_v1.yaml. No new
+# operator is introduced here. Operators from the frozen catalogue that have no
+# faithful output-level realization are recorded as NOT_REALIZABLE_AT_OUTPUT_LEVEL
+# and are covered only by Arm A. This is reported, not hidden.
+#
+# Rationale for the split: an output-level edit may only be called a semantic
+# probe if it realizes the operator's declared `expected_semantic_distinction`.
+# Operators whose semantics live in the computation (e.g. counting basis, ratio
+# composition, as-of attribution) cannot be realized by editing an output table
+# without degenerating into an arbitrary value edit, which the protocol forbids.
+
+version: "1.0"
+frozen: true
+row_cap: 2000          # rows read per table; fixed in advance for tractability
+                       # (the Verified comparator compares row-by-row in Python)
+random_seed: 20260928
+
+realizable:
+
+  GC1:
+    family: grain_cardinality
+    declared_distinction: "Output emits more rows per declared key than the reference"
+    applicability: "table has >=1 declared sort key and >=2 rows"
+    rule: "duplicate the first row, preserving its key values (row multiplicity at declared grain)"
+    magnitude_bin: row_set
+    control: SDL_rowdrop
+
+  PP1:
+    family: population_predicates
+    declared_distinction: "Entities leave the output population"
+    applicability: "table has >=5 rows"
+    rule: "delete the last 20% of rows (entities absent from the population)"
+    magnitude_bin: row_set
+    control: SDL_rowdrop
+
+  RV1:
+    family: representative_value
+    declared_distinction: "Tied rows retained vs one arbitrarily chosen"
+    applicability: "table contains >=1 group of rows tied on the declared key"
+    rule: "retain only the first row of each tied key group"
+    magnitude_bin: row_set
+    control: SDL_rowdrop
+
+  ME3:
+    family: measures
+    declared_distinction: "Percentage points vs fraction"
+    applicability: "a numeric non-key column whose non-null values lie in [0,1] with >=3 distinct non-zero values"
+    rule: "multiply that column by 100"
+    magnitude_bin: value_gt_1pct
+    control: AOR_scale
+
+  AB1:
+    family: absence
+    declared_distinction: "'No data' conflated with 'measured zero'"
+    applicability: "a numeric non-key column containing >=1 NULL and >=1 genuine zero"
+    rule: "replace NULLs in that column with 0"
+    magnitude_bin: value_gt_1pct
+    control: IR_constfill
+
+  AB1R:
+    family: absence
+    declared_distinction: "'Measured zero' conflated with 'no data' (reverse direction)"
+    applicability: "a numeric non-key column containing >=1 NULL and >=1 genuine zero"
+    rule: "replace genuine zeros in that column with NULL"
+    magnitude_bin: value_gt_1pct
+    control: IR_constfill
+    note: "reverse direction of AB1; same catalogue operator AB1"
+
+  AB2:
+    family: absence
+    declared_distinction: "Absence becomes an in-domain value"
+    applicability: "a non-key column containing >=1 NULL"
+    rule: "replace NULLs in that column with the sentinel string 'N/A'"
+    magnitude_bin: value_gt_1pct
+    control: IR_sentinel
+
+not_realizable_at_output_level:
+  - {operator: GC2, reason: "parent-measure grain is a join property, not an output edit"}
+  - {operator: GC3, reason: "coarser grouping requires recomputing aggregates"}
+  - {operator: GC4, reason: "fan trap requires two child relations; indistinguishable from GC1 at output level"}
+  - {operator: ME1, reason: "counting basis is a computation property"}
+  - {operator: ME2, reason: "ratio composition is a computation property"}
+  - {operator: ME4, reason: "additivity over time requires the time dimension"}
+  - {operator: PP2, reason: "membership breadth is a predicate property"}
+  - {operator: PP3, reason: "null-safe anti-join is a predicate property"}
+  - {operator: TM1, reason: "event vs processing time requires both source columns"}
+  - {operator: TM2, reason: "interval inclusivity requires the interval relation"}
+  - {operator: TM3, reason: "as-of attribution requires the versioned dimension"}
+  - {operator: TM4, reason: "timezone derivation requires the source timestamp and zone"}
+  - {operator: AB3, reason: "aggregate denominator is a computation property"}
+  - {operator: RV2, reason: "tie-break direction requires the ordering key, not present in output"}
+  - {operator: RV3, reason: "superlative under ties is a computation property"}
+  - {operator: RV4, reason: "modal vs maximum is a computation property"}
+
+# ---------------------------------------------------------------------------
+matched_controls:
+  principle: >
+    A control perturbs the SAME column(s) in the SAME magnitude bin as its
+    semantic partner, using a standard SQL/output mutation analogue (Tuya 2007),
+    but without realizing any declared semantic property.
+  definitions:
+    SDL_rowdrop:
+      bin: row_set
+      rule: "delete the same NUMBER of rows as the paired semantic probe, chosen from the middle of the table"
+    AOR_scale:
+      bin: value_gt_1pct
+      rule: "multiply the same column by 1.5 (arithmetic operator replacement analogue)"
+    IR_constfill:
+      bin: value_gt_1pct
+      rule: "replace the same cells the semantic probe touched with the arbitrary constant 999999"
+    IR_sentinel:
+      bin: value_gt_1pct
+      rule: "replace the same cells with the arbitrary string 'ZZZQ'"
+
+admissibility:
+  rule: >
+    A probe instance is admissible iff the perturbed table differs from the
+    reference under EXACT comparison (pandas equality with NaN-aware handling),
+    computed independently of either evaluator under test.
+  not_applicable: "recorded as NOT_APPLICABLE when preconditions fail; never silently dropped"

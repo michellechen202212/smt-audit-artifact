@@ -1,0 +1,16 @@
+arm,mutation_id,family,property,admissibility,evidence,ref_hash,mut_hash,v_default,v_verified
+semantic,M01,grain/cardinality,output row multiplicity (duplicate driver rows),admissible,"shape (7, 8) vs (8, 8)",4666752cf2e0,af49fc17583a,rejected,SURVIVED
+semantic,M02,predicates/population,output population (drivers without 2017 shipments dropped),admissible,"shape (7, 8) vs (5, 8)",4666752cf2e0,de373cd85a15,rejected,SURVIVED
+semantic,M03,measures,counting basis (rows -> distinct customers),admissible,"DataFrame.iloc[:, 3] (column name=""num_shipments_2017"") are ",4666752cf2e0,a98dbb79f25f,rejected,rejected
+semantic,M04,measures,measure scale (percentage points -> fraction),admissible,"DataFrame.iloc[:, 5] (column name=""per_shipment_placed_by_Au",4666752cf2e0,83632c03aee1,rejected,SURVIVED
+semantic,M05,temporal,temporal window (= 2017 -> >= 2017),admissible,"DataFrame.iloc[:, 3] (column name=""num_shipments_2017"") are ",4666752cf2e0,58eecbc97ec4,rejected,rejected
+semantic,M06,temporal,tie-break direction within event ordering,admissible,"DataFrame.iloc[:, 7] (column name=""weight_first_shipment"") a",4666752cf2e0,a56f4489f6e0,rejected,rejected
+semantic,M07,absence,absence encoding (0 -> NULL for no 2017 shipments),admissible,"DataFrame.iloc[:, 3] (column name=""num_shipments_2017"") are ",4666752cf2e0,411948408dbb,rejected,SURVIVED
+semantic,M08,absence,absence encoding (NULL -> 0 for undefined percentage),admissible,"DataFrame.iloc[:, 5] (column name=""per_shipment_placed_by_Au",4666752cf2e0,496bfc77fcfb,rejected,SURVIVED
+semantic,M09,representative-value,tie resolution (rank keeps ties -> row_number picks one),admissible,"shape (7, 8) vs (6, 8)",4666752cf2e0,b8f96b19f959,rejected,SURVIVED
+semantic,M10,predicates/population,predicate threshold (95% -> 90% of average weight),admissible,"DataFrame.iloc[:, 6] (column name=""has_a_shipment_weight_gre",4666752cf2e0,d00da97d0740,rejected,rejected
+conventional,C01,ROR,relational operator replaced (> -> <) in weight predicate,admissible,"DataFrame.iloc[:, 6] (column name=""has_a_shipment_weight_gre",4666752cf2e0,e7d41afb5478,rejected,rejected
+conventional,C02,AOR,arithmetic operator replaced (* -> +) in percentage,admissible,"DataFrame.iloc[:, 5] (column name=""per_shipment_placed_by_Au",4666752cf2e0,12eabeffa571,rejected,rejected
+conventional,C03,CRP,constant replaced (2017 -> 2018),admissible,"DataFrame.iloc[:, 3] (column name=""num_shipments_2017"") are ",4666752cf2e0,50a8d184b1c9,rejected,rejected
+conventional,C04,CRP,constant replaced (rank 1 -> 2),admissible,"shape (7, 8) vs (6, 8)",4666752cf2e0,3184faaf2aea,rejected,rejected
+conventional,C05,SDL,statement deleted (min population subquery -> fixed literal),admissible,"DataFrame.iloc[:, 4] (column name=""num_shipment_to_least_pop",4666752cf2e0,071268b75cba,rejected,rejected

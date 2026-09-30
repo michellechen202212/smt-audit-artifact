@@ -1,0 +1,204 @@
+benchmark,instance_id,probe_id,applicable,reference_hash,probe_hash,control_hash,probe_verdict_driver,control_verdict_driver,probe_verdict_utils,notes
+spider2-lite,bq001,PP1,applicable,41064d5eed2e69bc,09f9ddbbe714cdeb,c5a54aa577b2fc4c,rejected,rejected,rejected,
+spider2-lite,bq001,ME3,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,precondition unmet
+spider2-lite,bq001,AB1,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,precondition unmet
+spider2-lite,bq001,AB1R,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,precondition unmet
+spider2-lite,bq001,AB2,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,precondition unmet
+spider2-lite,bq001,GC1,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq001,RV1,NOT_APPLICABLE,41064d5eed2e69bc,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq001,PP1,applicable,91421baf45398a33,4d3f6a1f29cbd595,cdbb72d0561a689b,rejected,rejected,rejected,
+spider2-lite,bq001,ME3,NOT_APPLICABLE,91421baf45398a33,,,,,,precondition unmet
+spider2-lite,bq001,AB1,NOT_APPLICABLE,91421baf45398a33,,,,,,precondition unmet
+spider2-lite,bq001,AB1R,NOT_APPLICABLE,91421baf45398a33,,,,,,precondition unmet
+spider2-lite,bq001,AB2,NOT_APPLICABLE,91421baf45398a33,,,,,,precondition unmet
+spider2-lite,bq001,GC1,NOT_APPLICABLE,91421baf45398a33,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq001,RV1,NOT_APPLICABLE,91421baf45398a33,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq001,PP1,applicable,193606ff20de1622,8e1495be305c7623,0cea622fe7e1cb4d,rejected,rejected,rejected,
+spider2-lite,bq001,ME3,NOT_APPLICABLE,193606ff20de1622,,,,,,precondition unmet
+spider2-lite,bq001,AB1,NOT_APPLICABLE,193606ff20de1622,,,,,,precondition unmet
+spider2-lite,bq001,AB1R,NOT_APPLICABLE,193606ff20de1622,,,,,,precondition unmet
+spider2-lite,bq001,AB2,NOT_APPLICABLE,193606ff20de1622,,,,,,precondition unmet
+spider2-lite,bq001,GC1,NOT_APPLICABLE,193606ff20de1622,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq001,RV1,NOT_APPLICABLE,193606ff20de1622,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq002,PP1,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,precondition unmet
+spider2-lite,bq002,ME3,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,precondition unmet
+spider2-lite,bq002,AB1,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,precondition unmet
+spider2-lite,bq002,AB1R,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,precondition unmet
+spider2-lite,bq002,AB2,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,precondition unmet
+spider2-lite,bq002,GC1,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq002,RV1,NOT_APPLICABLE,8c84cfe7e6c0ebcc,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq002,PP1,NOT_APPLICABLE,d1c5c473627612aa,,,,,,precondition unmet
+spider2-lite,bq002,ME3,NOT_APPLICABLE,d1c5c473627612aa,,,,,,precondition unmet
+spider2-lite,bq002,AB1,NOT_APPLICABLE,d1c5c473627612aa,,,,,,precondition unmet
+spider2-lite,bq002,AB1R,NOT_APPLICABLE,d1c5c473627612aa,,,,,,precondition unmet
+spider2-lite,bq002,AB2,NOT_APPLICABLE,d1c5c473627612aa,,,,,,precondition unmet
+spider2-lite,bq002,GC1,NOT_APPLICABLE,d1c5c473627612aa,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq002,RV1,NOT_APPLICABLE,d1c5c473627612aa,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq003,PP1,applicable,bc45abe958619003,92bee366ce19ab1f,39f7b990ba43e28f,ERROR:ValueError,ERROR:ValueError,ERROR:ValueError,
+spider2-lite,bq003,ME3,NOT_APPLICABLE,bc45abe958619003,,,,,,precondition unmet
+spider2-lite,bq003,AB1,NOT_APPLICABLE,bc45abe958619003,,,,,,precondition unmet
+spider2-lite,bq003,AB1R,NOT_APPLICABLE,bc45abe958619003,,,,,,precondition unmet
+spider2-lite,bq003,AB2,NOT_APPLICABLE,bc45abe958619003,,,,,,precondition unmet
+spider2-lite,bq003,GC1,NOT_APPLICABLE,bc45abe958619003,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq003,RV1,NOT_APPLICABLE,bc45abe958619003,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq003,PP1,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,precondition unmet
+spider2-lite,bq003,ME3,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,precondition unmet
+spider2-lite,bq003,AB1,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,precondition unmet
+spider2-lite,bq003,AB1R,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,precondition unmet
+spider2-lite,bq003,AB2,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,precondition unmet
+spider2-lite,bq003,GC1,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq003,RV1,NOT_APPLICABLE,57faeba5bcc43a03,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq004,PP1,NOT_APPLICABLE,717370bcee337cf8,,,,,,precondition unmet
+spider2-lite,bq004,ME3,NOT_APPLICABLE,717370bcee337cf8,,,,,,precondition unmet
+spider2-lite,bq004,AB1,NOT_APPLICABLE,717370bcee337cf8,,,,,,precondition unmet
+spider2-lite,bq004,AB1R,NOT_APPLICABLE,717370bcee337cf8,,,,,,precondition unmet
+spider2-lite,bq004,AB2,NOT_APPLICABLE,717370bcee337cf8,,,,,,precondition unmet
+spider2-lite,bq004,GC1,NOT_APPLICABLE,717370bcee337cf8,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq004,RV1,NOT_APPLICABLE,717370bcee337cf8,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq008,PP1,NOT_APPLICABLE,0cccad6888e60043,,,,,,precondition unmet
+spider2-lite,bq008,ME3,NOT_APPLICABLE,0cccad6888e60043,,,,,,precondition unmet
+spider2-lite,bq008,AB1,NOT_APPLICABLE,0cccad6888e60043,,,,,,precondition unmet
+spider2-lite,bq008,AB1R,NOT_APPLICABLE,0cccad6888e60043,,,,,,precondition unmet
+spider2-lite,bq008,AB2,NOT_APPLICABLE,0cccad6888e60043,,,,,,precondition unmet
+spider2-lite,bq008,GC1,NOT_APPLICABLE,0cccad6888e60043,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq008,RV1,NOT_APPLICABLE,0cccad6888e60043,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq008,PP1,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,precondition unmet
+spider2-lite,bq008,ME3,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,precondition unmet
+spider2-lite,bq008,AB1,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,precondition unmet
+spider2-lite,bq008,AB1R,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,precondition unmet
+spider2-lite,bq008,AB2,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,precondition unmet
+spider2-lite,bq008,GC1,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq008,RV1,NOT_APPLICABLE,a25d54bbf80bd366,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq009,PP1,NOT_APPLICABLE,254fbb7270be6696,,,,,,precondition unmet
+spider2-lite,bq009,ME3,NOT_APPLICABLE,254fbb7270be6696,,,,,,precondition unmet
+spider2-lite,bq009,AB1,NOT_APPLICABLE,254fbb7270be6696,,,,,,precondition unmet
+spider2-lite,bq009,AB1R,NOT_APPLICABLE,254fbb7270be6696,,,,,,precondition unmet
+spider2-lite,bq009,AB2,NOT_APPLICABLE,254fbb7270be6696,,,,,,precondition unmet
+spider2-lite,bq009,GC1,NOT_APPLICABLE,254fbb7270be6696,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq009,RV1,NOT_APPLICABLE,254fbb7270be6696,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq009,PP1,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,precondition unmet
+spider2-lite,bq009,ME3,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,precondition unmet
+spider2-lite,bq009,AB1,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,precondition unmet
+spider2-lite,bq009,AB1R,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,precondition unmet
+spider2-lite,bq009,AB2,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,precondition unmet
+spider2-lite,bq009,GC1,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq009,RV1,NOT_APPLICABLE,6f2d313a4b17663b,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq010,PP1,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,precondition unmet
+spider2-lite,bq010,ME3,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,precondition unmet
+spider2-lite,bq010,AB1,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,precondition unmet
+spider2-lite,bq010,AB1R,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,precondition unmet
+spider2-lite,bq010,AB2,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,precondition unmet
+spider2-lite,bq010,GC1,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq010,RV1,NOT_APPLICABLE,6be8cc427f4b2a1c,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq018,PP1,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,precondition unmet
+spider2-lite,bq018,ME3,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,precondition unmet
+spider2-lite,bq018,AB1,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,precondition unmet
+spider2-lite,bq018,AB1R,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,precondition unmet
+spider2-lite,bq018,AB2,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,precondition unmet
+spider2-lite,bq018,GC1,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq018,RV1,NOT_APPLICABLE,f8d481e10e64ee07,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq019,PP1,NOT_APPLICABLE,7dfa69c31859332b,,,,,,precondition unmet
+spider2-lite,bq019,ME3,NOT_APPLICABLE,7dfa69c31859332b,,,,,,precondition unmet
+spider2-lite,bq019,AB1,NOT_APPLICABLE,7dfa69c31859332b,,,,,,precondition unmet
+spider2-lite,bq019,AB1R,NOT_APPLICABLE,7dfa69c31859332b,,,,,,precondition unmet
+spider2-lite,bq019,AB2,NOT_APPLICABLE,7dfa69c31859332b,,,,,,precondition unmet
+spider2-lite,bq019,GC1,NOT_APPLICABLE,7dfa69c31859332b,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq019,RV1,NOT_APPLICABLE,7dfa69c31859332b,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq019,PP1,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,precondition unmet
+spider2-lite,bq019,ME3,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,precondition unmet
+spider2-lite,bq019,AB1,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,precondition unmet
+spider2-lite,bq019,AB1R,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,precondition unmet
+spider2-lite,bq019,AB2,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,precondition unmet
+spider2-lite,bq019,GC1,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq019,RV1,NOT_APPLICABLE,6753fd3b1c96d4ee,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq019,PP1,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,precondition unmet
+spider2-lite,bq019,ME3,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,precondition unmet
+spider2-lite,bq019,AB1,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,precondition unmet
+spider2-lite,bq019,AB1R,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,precondition unmet
+spider2-lite,bq019,AB2,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,precondition unmet
+spider2-lite,bq019,GC1,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq019,RV1,NOT_APPLICABLE,1402fcd62cdbf7fd,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq019,PP1,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,precondition unmet
+spider2-lite,bq019,ME3,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,precondition unmet
+spider2-lite,bq019,AB1,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,precondition unmet
+spider2-lite,bq019,AB1R,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,precondition unmet
+spider2-lite,bq019,AB2,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,precondition unmet
+spider2-lite,bq019,GC1,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq019,RV1,NOT_APPLICABLE,8e0a3b02df3727c7,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq022,PP1,applicable,8b86ce80a33f378f,477907961ca2d253,05b9e1b97046af59,ERROR:ValueError,ERROR:ValueError,ERROR:ValueError,
+spider2-lite,bq022,ME3,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,precondition unmet
+spider2-lite,bq022,AB1,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,precondition unmet
+spider2-lite,bq022,AB1R,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,precondition unmet
+spider2-lite,bq022,AB2,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,precondition unmet
+spider2-lite,bq022,GC1,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq022,RV1,NOT_APPLICABLE,8b86ce80a33f378f,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq022,PP1,applicable,65325edf7d029b17,55abc99d0676f8d2,f418c62103f91a6f,ERROR:ValueError,ERROR:ValueError,ERROR:ValueError,
+spider2-lite,bq022,ME3,NOT_APPLICABLE,65325edf7d029b17,,,,,,precondition unmet
+spider2-lite,bq022,AB1,NOT_APPLICABLE,65325edf7d029b17,,,,,,precondition unmet
+spider2-lite,bq022,AB1R,NOT_APPLICABLE,65325edf7d029b17,,,,,,precondition unmet
+spider2-lite,bq022,AB2,NOT_APPLICABLE,65325edf7d029b17,,,,,,precondition unmet
+spider2-lite,bq022,GC1,NOT_APPLICABLE,65325edf7d029b17,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq022,RV1,NOT_APPLICABLE,65325edf7d029b17,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq022,PP1,applicable,127f0834efd09f5f,8ea223bcc5daf016,7f625c2ac2994a47,ERROR:IndexError,ERROR:IndexError,ERROR:IndexError,
+spider2-lite,bq022,ME3,NOT_APPLICABLE,127f0834efd09f5f,,,,,,precondition unmet
+spider2-lite,bq022,AB1,NOT_APPLICABLE,127f0834efd09f5f,,,,,,precondition unmet
+spider2-lite,bq022,AB1R,NOT_APPLICABLE,127f0834efd09f5f,,,,,,precondition unmet
+spider2-lite,bq022,AB2,NOT_APPLICABLE,127f0834efd09f5f,,,,,,precondition unmet
+spider2-lite,bq022,GC1,NOT_APPLICABLE,127f0834efd09f5f,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq022,RV1,NOT_APPLICABLE,127f0834efd09f5f,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq022,PP1,applicable,c8e88bb6ac31f86e,320165e16f2834a3,44ee4d23840a79d6,ERROR:ValueError,ERROR:ValueError,ERROR:ValueError,
+spider2-lite,bq022,ME3,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,precondition unmet
+spider2-lite,bq022,AB1,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,precondition unmet
+spider2-lite,bq022,AB1R,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,precondition unmet
+spider2-lite,bq022,AB2,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,precondition unmet
+spider2-lite,bq022,GC1,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq022,RV1,NOT_APPLICABLE,c8e88bb6ac31f86e,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq023,PP1,applicable,fd9a7f7dccf2af1e,ac2295cfda02d768,345adc7996d09905,rejected,rejected,rejected,
+spider2-lite,bq023,ME3,NOT_APPLICABLE,fd9a7f7dccf2af1e,,,,,,precondition unmet
+spider2-lite,bq023,AB1,NOT_APPLICABLE,fd9a7f7dccf2af1e,,,,,,precondition unmet
+spider2-lite,bq023,AB1R,NOT_APPLICABLE,fd9a7f7dccf2af1e,,,,,,precondition unmet
+spider2-lite,bq023,AB2,applicable,fd9a7f7dccf2af1e,808676d4347e3df1,a0201e42631fadc5,rejected,rejected,rejected,col=average_donation_amount
+spider2-lite,bq023,GC1,NOT_APPLICABLE,fd9a7f7dccf2af1e,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq023,RV1,NOT_APPLICABLE,fd9a7f7dccf2af1e,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq023,PP1,applicable,5be533497fdc9b5b,be2823b83a7f2eda,02a256cddde39752,rejected,rejected,rejected,
+spider2-lite,bq023,ME3,NOT_APPLICABLE,5be533497fdc9b5b,,,,,,precondition unmet
+spider2-lite,bq023,AB1,NOT_APPLICABLE,5be533497fdc9b5b,,,,,,precondition unmet
+spider2-lite,bq023,AB1R,NOT_APPLICABLE,5be533497fdc9b5b,,,,,,precondition unmet
+spider2-lite,bq023,AB2,applicable,5be533497fdc9b5b,8c91a786e6c828e5,01e00cfbf475a6d5,rejected,rejected,rejected,col=avg_donation_amount
+spider2-lite,bq023,GC1,NOT_APPLICABLE,5be533497fdc9b5b,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq023,RV1,NOT_APPLICABLE,5be533497fdc9b5b,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq023,PP1,applicable,c17079bf62d65cfd,aaf7d74457c699d9,f39b2108b39aa50b,rejected,rejected,rejected,
+spider2-lite,bq023,ME3,NOT_APPLICABLE,c17079bf62d65cfd,,,,,,precondition unmet
+spider2-lite,bq023,AB1,NOT_APPLICABLE,c17079bf62d65cfd,,,,,,precondition unmet
+spider2-lite,bq023,AB1R,NOT_APPLICABLE,c17079bf62d65cfd,,,,,,precondition unmet
+spider2-lite,bq023,AB2,applicable,c17079bf62d65cfd,123e1106d9d4a558,7735ff3b1ae91d93,rejected,rejected,rejected,col=avg_donation_amount
+spider2-lite,bq023,GC1,NOT_APPLICABLE,c17079bf62d65cfd,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq023,RV1,NOT_APPLICABLE,c17079bf62d65cfd,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq023,PP1,applicable,44bd9e231efe8ad9,b10a469597efe4ae,8b81e94b5ba952ba,rejected,rejected,rejected,
+spider2-lite,bq023,ME3,NOT_APPLICABLE,44bd9e231efe8ad9,,,,,,precondition unmet
+spider2-lite,bq023,AB1,NOT_APPLICABLE,44bd9e231efe8ad9,,,,,,precondition unmet
+spider2-lite,bq023,AB1R,NOT_APPLICABLE,44bd9e231efe8ad9,,,,,,precondition unmet
+spider2-lite,bq023,AB2,applicable,44bd9e231efe8ad9,eddd766c486fc37f,01a0c0ee2be66988,rejected,rejected,rejected,col=median_income
+spider2-lite,bq023,GC1,NOT_APPLICABLE,44bd9e231efe8ad9,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq023,RV1,NOT_APPLICABLE,44bd9e231efe8ad9,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq023,PP1,applicable,f410aef79a4a11f0,f618668d4b6fdb93,39259c217837e04a,rejected,rejected,rejected,
+spider2-lite,bq023,ME3,NOT_APPLICABLE,f410aef79a4a11f0,,,,,,precondition unmet
+spider2-lite,bq023,AB1,NOT_APPLICABLE,f410aef79a4a11f0,,,,,,precondition unmet
+spider2-lite,bq023,AB1R,NOT_APPLICABLE,f410aef79a4a11f0,,,,,,precondition unmet
+spider2-lite,bq023,AB2,applicable,f410aef79a4a11f0,eee3e0b739995db6,60c1cd0792c9efca,rejected,rejected,rejected,col=median_income
+spider2-lite,bq023,GC1,NOT_APPLICABLE,f410aef79a4a11f0,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq023,RV1,NOT_APPLICABLE,f410aef79a4a11f0,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq024,PP1,applicable,5a74c70470f5c84a,4651cfd9294a6555,770594d35601dbce,rejected,rejected,rejected,
+spider2-lite,bq024,ME3,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,precondition unmet
+spider2-lite,bq024,AB1,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,precondition unmet
+spider2-lite,bq024,AB1R,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,precondition unmet
+spider2-lite,bq024,AB2,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,precondition unmet
+spider2-lite,bq024,GC1,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq024,RV1,NOT_APPLICABLE,5a74c70470f5c84a,,,,,,probe requires a tied DECLARED-key group; no key declared
+spider2-lite,bq024,PP1,applicable,009902e85c9bcf0e,57b3e55d074b788b,cacd78f754968bd4,rejected,rejected,rejected,
+spider2-lite,bq024,ME3,NOT_APPLICABLE,009902e85c9bcf0e,,,,,,precondition unmet
+spider2-lite,bq024,AB1,NOT_APPLICABLE,009902e85c9bcf0e,,,,,,precondition unmet
+spider2-lite,bq024,AB1R,NOT_APPLICABLE,009902e85c9bcf0e,,,,,,precondition unmet
+spider2-lite,bq024,AB2,applicable,009902e85c9bcf0e,e2ff7c66795d3c21,f8dc8d663abd3254,rejected,rejected,rejected,col=macroplot_acres
+spider2-lite,bq024,GC1,NOT_APPLICABLE,009902e85c9bcf0e,,,,,,probe meaning is row multiplicity at a DECLARED grain; no key declared
+spider2-lite,bq024,RV1,NOT_APPLICABLE,009902e85c9bcf0e,,,,,,probe requires a tied DECLARED-key group; no key declared
